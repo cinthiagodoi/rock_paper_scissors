@@ -4,21 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pedra_Papel_Tesoura</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Rock Paper Scissor</title>
 </head>
 <body>
-  <button name="rock">Rock</button>
-  <button name="paper">Paper</button>
-  <button name="scissor">Scissor</button>
- 
+  <h1>Rock Paper Scissor Game!</h1>
+
+    <div class="myScore">
+      <a>Your Score</br> <span id="user"></span></a>
+      <a>Computer Score</br><span id="pc"></span></a>
+      <a>Tie Score</br><span id="tie"></span></a>
+
+    </div>
+
+  <div class= "myButton">
+    <button name="rock"><img src="images/rock.png"></br>Rock</button>
+    <button name="paper"><img src="images/paper.png"></br>Paper</button>
+    <button name="scissor"><img src="images/scissor.png"></br>Scissor</button>
+  </div>  
   
-    <p>User: <span id="user"></span></p>
-    <p>PC: <span id="pc"></span></p>
-    <p>Empate: <span id="empate"></span></p>
-  
-    <h1 id="ganhou">Voce ganhou essa rodada</h1>
-    <h1 id="perdeu">Voce perdeu essa rodada</h1>
-    
+    <h1 id="win">Congratulations! You won this round!</h1>
+    <h1 id="lose">How sad, you missed this round!</h1>
+   
+
   <script type="text/javascript" src = "main.js"></script>
 </body>
 </html>

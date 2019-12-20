@@ -1,9 +1,9 @@
 let options = ["paper","rock","scissor"];
 let pcScore = 0;
 let userScore = 0;
-let empateScore = 0;
-document.getElementById("ganhou").hidden = true;
-document.getElementById("perdeu").hidden = true;
+let tieScore = 0;
+document.getElementById("win").hidden = true;
+document.getElementById("lose").hidden = true;
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -22,22 +22,22 @@ for (var i = 0; i < buttons.length; i++){
   }
 }
 function userPlay(){
-  let quemganhou = playRound(this.name, computerPlay());
-  console.log(quemganhou);
-  console.log(score(quemganhou));
-  document.getElementById("ganhou").hidden = true;
-  document.getElementById("perdeu").hidden = true;
-  vencedor()
+  let winner = playRound(this.name, computerPlay());
+  console.log(winner);
+  console.log(score(winner));
+  document.getElementById("win").hidden = true;
+  document.getElementById("lose").hidden = true;
+  gameEnd()
   document.getElementById("user").innerHTML = userScore;
   document.getElementById("pc").innerHTML = pcScore;
-  document.getElementById("empate").innerHTML = empateScore;
+  document.getElementById("tie").innerHTML = tieScore;
 }
 
-function score(quemganhou){
-  if (quemganhou == "empate") {
-    return ++empateScore
+function score(winner){
+  if (winner == "tie") { 
+    return ++tieScore
   }
-  else if (quemganhou == "venceu"){
+  else if (winner == "win"){
     return ++userScore
   }
   else {
@@ -45,32 +45,32 @@ function score(quemganhou){
   }
 }  
 
-function vencedor(){
+function gameEnd(){
   if (userScore == 5){
     pcScore = 0;
     userScore = 0;
     empateScore = 0; 
-    document.getElementById("ganhou").hidden = false; 
+    document.getElementById("win").hidden = false; 
   }
   if (pcScore == 5){
     pcScore = 0;
     userScore = 0;
     empateScore = 0;
-    document.getElementById("perdeu").hidden = false;
+    document.getElementById("lose").hidden = false;
   }
 }
 
 function playRound(playerSelection, computerSelection){
   if (playerSelection == computerSelection){
-    return "empate";
+    return "tie";
   }
   else if ((playerSelection == "paper" && computerSelection == "rock")||
   (playerSelection == "rock" && computerSelection == "scissor")||
   (playerSelection == "scissor" && computerSelection == "paper"))
       
-    return "venceu";
+    return "win";
   else {
-    return "perdeu";
+    return "lose";
   }  
 }
 
